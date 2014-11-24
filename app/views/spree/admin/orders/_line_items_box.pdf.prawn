@@ -26,7 +26,7 @@ unless @hide_prices
   data << [""] * 5
   data << [nil, nil, nil, nil, Spree.t(:subtotal), @order.display_item_total.to_s]
 
-  @order.all_adjustments.eligible.each do |adjustment|
+  @order.adjustments.eligible.each do |adjustment|
     extra_row_count += 1
     data << [nil, nil, nil, nil, adjustment.label, adjustment.display_amount.to_s]
   end
